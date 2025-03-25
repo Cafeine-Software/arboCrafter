@@ -1,6 +1,6 @@
 {
   "name": "@cafeine-software/arbo-crafter",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "ArboCrafter is a simple tool to generate a tree structure from a list of structure description.",
   "homepage": "https://github.com/Cafeine-Software/ArboCrafter#readme",
   "repository": {
