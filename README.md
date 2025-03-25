@@ -13,7 +13,7 @@
 # Presentation
 Simple and efficient way to create a complete filetree in one function. I created it to simplify the build process of my own framework (i know this information about my life is not usefull xD)
 
-# Features : 
+# Features
 - Create the folders structure
 - Create files
 - Copy file
@@ -21,13 +21,13 @@ Simple and efficient way to create a complete filetree in one function. I create
 
 # Installation
 ```bash
-npm i @cafeine-software/arboCrafter
+npm i @cafeine-software/arbo-crafter
 ```
 
 # Usage
 
 ```javascript
-import { buildFileTree } from '@cafeine-software/arboCrafter';
+import { buildFileTree } from ' @cafeine-software/arbo-crafter';
 
 // ⬇ Define the structure of the filetree you want to create
 const fileTreeStructure = {}
