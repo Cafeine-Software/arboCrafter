@@ -5,9 +5,6 @@
 ![Node](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
 [![Npm](https://img.shields.io/badge/npm-red?style=for-the-badge&logo=npm&logoColor=white)](https://www.npmjs.com/package/@cafeine-software/abuseipdb)
 
-
-A lib to create a filetree
-
 [Introduction](#Introduction) • [Features](#Features) [Installation](#Installation) • [Usage](#Usage) • [License](#License) • [Contact](#Contact) • [Links](#Links) • [Support](#support)
 
 <br/>
