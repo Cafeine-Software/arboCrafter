@@ -1,17 +1,31 @@
 {
   "name": "@cafeine-software/arbo-crafter",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "ArboCrafter is a simple tool to generate a tree structure from a list of structure description.",
   "homepage": "https://github.com/Cafeine-Software/ArboCrafter#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Cafeine-Software/ArboCrafter.git"
   },
-  "license": "ISC",
-  "author": "",
+  "license": "CC BY-NC-SA 4.0",
+  "author": "Quentin Lamamy <contact@quentin-lamamy.fr>",
   "type": "module",
   "main": "index.js",
-  "scripts": {
-    "test": "node --test"
-  }
+  "keywords": [
+    "filetree",
+    "tree",
+    "structure",
+    "generator",
+    "arborescence",
+    "build",
+    "mkdir",
+    "create",
+    "directory",
+    "folder",
+    "files",
+    "folders",
+    "generate",
+    "cp",
+    "mv"
+  ]
 }
