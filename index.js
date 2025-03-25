@@ -9,6 +9,9 @@ import path from 'path';
  */
 export function buildFileTree(fileTreeStructure, outputPath) {
 
+    console.log("toto")
+    process.exit(0)
+
     try {
 
         // If the output folder does not exist, create it
