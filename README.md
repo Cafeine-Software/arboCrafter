@@ -110,7 +110,8 @@ buildFileTree(fileTreeStructure,outputFolder)
 ```
 
 # License
-[<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/CC_BY-SA_icon.svg/320px-CC_BY-SA_icon.svg.png" width="25%"/>](https://creativecommons.org/licenses/by-sa/4.0/)
+[<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/CC_BY-NC-SA.svg/512px-CC_BY-NC-SA.svg.png" width="35%"/>](https://creativecommons.org/licenses/by-nc-sa/4.0)
+
 
 # Contact
 Developed by **Quentin Lamamy**, contact me on Linked In
