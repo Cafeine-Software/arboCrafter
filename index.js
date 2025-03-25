@@ -9,9 +9,6 @@ import path from 'path';
  */
 export function buildFileTree(fileTreeStructure, outputPath) {
 
-    console.log("toto")
-    process.exit(0)
-
     try {
 
         // If the output folder does not exist, create it
@@ -29,7 +26,8 @@ export function buildFileTree(fileTreeStructure, outputPath) {
                 // Get content from external source
                 if (distContent.startsWith("@")) {
     
-                    const srcFilePath = path.join(process.cwd(),distContent.replaceAll("@", "").trim())
+                    const sanitizedContent = distContent.replaceAll("@", "").trim();
+                    const srcFilePath = path.resolve(sanitizedContent);
 
                     if(fileExists(srcFilePath)){
 
