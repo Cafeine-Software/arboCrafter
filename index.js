@@ -44,12 +44,8 @@ export function buildFileTree(fileTreeStructure, outputPath) {
 
                     }else{throw new Error(`File '${srcFilePath}' not found`)}
 
-                    // Write the string as file content
-                } else {
-
-                    fs.writeFileSync(distFilePath, distContent, 'utf-8');
-
-                }
+                    
+                } else {fs.writeFileSync(distFilePath, distContent, 'utf-8');} // Write the string as file content
 
             }
             // If the content is an object : create a folder
@@ -88,7 +84,7 @@ function copyFile(filePath, distFilePath) {
  * @param {String} distFolderPath 
  * @returns {Void}
  */
-function copyFolder(folderPath, distFolderPath) {
+function copyFolder(folderPath, distFolderPath,keepStructure = true) {
 
     try {
 
@@ -100,21 +96,31 @@ function copyFolder(folderPath, distFolderPath) {
             fs.mkdirSync(distFolderPath, { recursive: true });
         }
 
-        // List all file and subfolders files in folderPath
-        const files = fs.readdirSync(folderPath, { withFileTypes: true, recursive: true });
+        if(!keepStructure){
 
-        for (const file of files) {
-            
-            // Copy file
-            if (file.isFile()) {
-
-                const srcPath = path.join(file.parentPath,file.name)
-                const distPath = path.join(distFolderPath, file.name)
-
-                copyFile(srcPath, distPath)
+            // List all file and subfolders files in folderPath
+            const files = fs.readdirSync(folderPath, { withFileTypes: true, recursive: true });
+    
+            for (const file of files) {
+                
+                // Copy file
+                if (file.isFile()) {
+    
+                    const srcPath = path.join(file.parentPath,file.name)
+                    const distPath = path.join(distFolderPath, file.name)
+    
+                    copyFile(srcPath, distPath)
+                }
+    
             }
 
+        }else{
+
+            // Just copy the whole folder
+            fs.copyFileSync(folderPath, distFolderPath)
+
         }
+
 
     } catch (error) {throw new Error(`Error while copying folder ${folderPath} to ${distFolderPath}`, { cause: error })}
 
