@@ -10,7 +10,7 @@
 
 A lib to create a filetree
 
-[Installation](#Installation) • [Usage](#Usage) • [License](#License) • [Contact](#Contact) • [Support](#support)
+[Introduction](#Introduction) • [Features](#Features) [Installation](#Installation) • [Usage](#Usage) • [License](#License) • [Contact](#Contact) • [Links](#Links) • [Support](#support)
 
 <br/>
 </div>
@@ -22,7 +22,7 @@ Simple and efficient way to create a complete filetree in one function. I create
 - Create the folders structure
 - Create files
 - Copy file
-- Copy whole folder
+- Copy all files from a folder and subfolder
 
 # Installation
 ```bash
