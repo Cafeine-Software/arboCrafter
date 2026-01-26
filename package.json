@@ -10,7 +10,7 @@
   "license": "CC BY-NC-SA 4.0",
   "author": "Quentin Lamamy <contact@quentin-lamamy.fr>",
   "type": "module",
-  "main": "index.js",
+  "main": "arboCrafter.js",
   "keywords": [
     "filetree",
     "tree",
