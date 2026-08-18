@@ -1,14 +1,20 @@
 <div align="center">
 
-![ArboCrafter](media/wideLogo_dark.webp)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="media/wideLogo_light.webp">
+  <source media="(prefers-color-scheme: light)" srcset="media/wideLogo_dark.webp">
+  <img alt="PadCenter" src="media/wideLogo_dark.webp">
+</picture>
 
-![Node](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
-[![Npm](https://img.shields.io/badge/npm-red?style=for-the-badge&logo=npm&logoColor=white)](https://www.npmjs.com/package/@cafeine-software/arbo-crafter)
+[![NodeJS Badge](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/en)[![Npm Badge](https://img.shields.io/badge/npm-red?style=for-the-badge&logo=npm&logoColor=white)](https://www.npmjs.com/package/@cafeine-software/padcenter)
 
-[Introduction](#Introduction) • [Features](#Features) • [Installation](#Installation) • [Usage](#Usage) • [License](#License) • [Author](#Author)
+<hr/>
+
+[Introduction](#Introduction) • [Features](#Features) • [Installation](#Installation) • [Usage](#Usage) • [License](#License) • [Author](#Author)<hr/>
+
+</div>
 
 <br/>
-</div>
 
 # Introduction
 Simple and efficient way to create a complete filetree in one function. I created it to simplify the build process of my own framework (i know this information about my life is not useful xD)
