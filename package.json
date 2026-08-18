@@ -7,10 +7,17 @@
     "type": "git",
     "url": "git+https://github.com/Cafeine-Software/ArboCrafter.git"
   },
-  "license": "CC BY-NC-SA 4.0",
+  "license": "MPL-2.0",
   "author": "Quentin Lamamy <contact@quentin-lamamy.fr>",
   "type": "module",
   "main": "arboCrafter.js",
+  "files": [
+    "arboCrafter.js",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test"
+  },
   "keywords": [
     "filetree",
     "tree",

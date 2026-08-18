@@ -1,3 +1,11 @@
+/* 
+ * Copyright (c) 2025-2026 Quentin Lamamy
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ */
+
 import fs from 'fs';
 import path from 'path';
 
@@ -13,7 +21,7 @@ export function buildFileTree(fileTreeStructure, outputPath) {
 
         // If the output folder does not exist, create it
         if (!fs.existsSync(outputPath)) {
-            fs.mkdirSync(outputPath);
+            fs.mkdirSync(outputPath, { recursive: true });
         }
 
         for (const [distFilename, distContent] of Object.entries(fileTreeStructure)) {
@@ -25,27 +33,28 @@ export function buildFileTree(fileTreeStructure, outputPath) {
 
                 // Get content from external source
                 if (distContent.startsWith("@")) {
-    
-                    const sanitizedContent = distContent.replaceAll("@", "").trim();
+
+                    const flatten = distContent.startsWith("@!");
+                    const sanitizedContent = distContent.slice(flatten ? 2 : 1).trim();
                     const srcFilePath = path.resolve(sanitizedContent);
 
-                    if(fileExists(srcFilePath)){
+                    if (fileExists(srcFilePath)) {
 
                         // Check if it's a file or a folder
                         const stats = fs.statSync(srcFilePath)
-        
+
                         // Copy whole folder
                         if (stats.isDirectory()) {
-                            copyFolder(srcFilePath, distFilePath)
-                        // Copy the file
+                            copyFolder(srcFilePath, distFilePath, !flatten)
+                            // Copy the file
                         } else {
                             copyFile(srcFilePath, distFilePath)
                         }
 
-                    }else{throw new Error(`File '${srcFilePath}' not found`)}
+                    } else { throw new Error(`File '${srcFilePath}' not found`) }
 
-                    
-                } else {fs.writeFileSync(distFilePath, distContent, 'utf-8');} // Write the string as file content
+
+                } else { fs.writeFileSync(distFilePath, distContent, 'utf-8'); } // Write the string as file content
 
             }
             // If the content is an object : create a folder
@@ -58,7 +67,7 @@ export function buildFileTree(fileTreeStructure, outputPath) {
 
         }
 
-    } catch (error) {throw new Error(`Error while building file tree`, { cause: error })}
+    } catch (error) { throw new Error(`Error while building file tree`, { cause: error }) }
 
 }
 
@@ -74,7 +83,7 @@ function copyFile(filePath, distFilePath) {
 
         fs.copyFileSync(filePath, distFilePath)
 
-    } catch (error) {throw new Error(`Error while copying file ${filePath} to ${distFilePath}`, { cause: error })}
+    } catch (error) { throw new Error(`Error while copying file ${filePath} to ${distFilePath}`, { cause: error }) }
 
 }
 
@@ -84,7 +93,7 @@ function copyFile(filePath, distFilePath) {
  * @param {String} distFolderPath 
  * @returns {Void}
  */
-function copyFolder(folderPath, distFolderPath,keepStructure = true) {
+function copyFolder(folderPath, distFolderPath, keepStructure = true) {
 
     try {
 
@@ -96,33 +105,33 @@ function copyFolder(folderPath, distFolderPath,keepStructure = true) {
             fs.mkdirSync(distFolderPath, { recursive: true });
         }
 
-        if(!keepStructure){
+        if (!keepStructure) {
 
             // List all file and subfolders files in folderPath
             const files = fs.readdirSync(folderPath, { withFileTypes: true, recursive: true });
-    
+
             for (const file of files) {
-                
+
                 // Copy file
                 if (file.isFile()) {
-    
-                    const srcPath = path.join(file.parentPath,file.name)
+
+                    const srcPath = path.join(file.parentPath, file.name)
                     const distPath = path.join(distFolderPath, file.name)
-    
+
                     copyFile(srcPath, distPath)
                 }
-    
+
             }
 
-        }else{
+        } else {
 
-            // Just copy the whole folder
-            fs.copyFileSync(folderPath, distFolderPath)
+            // Copy the whole folder with its structure
+            fs.cpSync(folderPath, distFolderPath, { recursive: true })
 
         }
 
 
-    } catch (error) {throw new Error(`Error while copying folder ${folderPath} to ${distFolderPath}`, { cause: error })}
+    } catch (error) { throw new Error(`Error while copying folder ${folderPath} to ${distFolderPath}`, { cause: error }) }
 
 }
 
