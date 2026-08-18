@@ -137,7 +137,7 @@ npm test
 
 # Changelog
 
-- 18/08/2026 : v1.1 — Fixed folder copy, added @! flatten syntax, switched to MPL 2.0
+- 18/08/2026 : v1.1.0 — Fixed folder copy, added @! flatten syntax, switched to MPL 2.0
 
 # License
 
